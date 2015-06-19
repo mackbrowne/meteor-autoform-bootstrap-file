@@ -1,0 +1,24 @@
+<template name="afFileUpload">
+  <div class="{{style}}-upload-control">
+    <label class="input-group">
+      {{#if isImage}}
+        {{#if url}}
+          <img src="{{url}}" alt="" class="img-thumbnail img-responsive">
+        {{else}}
+          {{noImageText}}
+        {{/if}}
+      {{else}}
+        <span class="input-group-btn">
+          <span class="btn btn-primary btn-file">
+            {{buttonText}}
+          </span>
+        </span>
+        <span class="form-control">
+          {{filename}}
+        </span>
+      {{/if}}
+      <input id="{{atts.id}}" type="file" accept="{{accept}}" style="display: none">
+      <input type="hidden" value="{{value}}" data-schema-key="{{schemaKey}}">
+    </label>
+  </div>
+</template>
