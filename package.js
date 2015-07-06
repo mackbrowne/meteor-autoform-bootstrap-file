@@ -2,7 +2,7 @@ Package.describe({
   name: "meteorblackbelt:autoform-bootstrap-file",
   summary: "File upload for AutoForm",
   description: "File upload for AutoForm",
-  version: "0.0.1",
+  version: "0.0.2",
   git: "http://github.com/meteorblackbelt/autoform-bootstrap-file.git",
   documentation: null
 });

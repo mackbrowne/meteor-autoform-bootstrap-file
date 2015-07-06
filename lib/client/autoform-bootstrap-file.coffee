@@ -14,11 +14,10 @@ getDocument = (context) ->
   collection?.findOne(id)
 
 Template.afFileUpload.onCreated ->
-  this.autorun =>
-    file = getDocument @data
-    @value = new ReactiveVar @data.value
-    @filename = new ReactiveVar(file && file.original && file.original.name)
-    @url = new ReactiveVar(file && file.url && file.url())
+  file = getDocument @data
+  @value = new ReactiveVar @data.value
+  @filename = new ReactiveVar(file && file.original && file.original.name)
+  @url = new ReactiveVar(file && file.url && file.url())
 
   $(self.firstNode).closest('form').on 'reset', =>
     @value.set null
@@ -56,4 +55,7 @@ Template.afFileUpload.events
 
     collection.insert file, (err, fileObj) ->
       if err then return console.log err
+      if(fileObj && fileObj.data)
+        console.log(fileObj)
+        t.filename.set(fileObj.data.blob && fileObj.data.blob.name)
       t.value.set fileObj._id
